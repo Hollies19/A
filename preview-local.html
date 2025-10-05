@@ -1,0 +1,33 @@
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <title>Markdown → HTML 预览（本地）</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="editor.md/css/editormd.preview.css" />
+  <style>body{max-width:900px;margin:20px auto;padding:0 16px;}</style>
+</head>
+<body>
+  <h1>Markdown → HTML 预览（本地）</h1>
+  <div id="md-preview">
+    <textarea style="display:none;">### Hello world!
+- 这是一个仅用于展示 Markdown 渲染效果的页面
+- 无编辑功能
+    </textarea>
+  </div>
+
+  <script src="jquery.min.js"></script>
+  <script src="editor.md/editormd.js"></script>
+  <script src="editor.md/lib/marked.min.js"></script>
+  <script src="editor.md/lib/prettify.min.js"></script>
+  <script>
+    $(function () {
+      editormd.markdownToHTML("md-preview", {
+        // 也可以通过 markdown: "..." 动态设置文本
+        // htmlDecode: "style,script,iframe" // 如需允许某些 HTML 标签
+      });
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,37 @@
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <title>Editor.md CDN 引入示例</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <!-- 使用 CDN 的样式 -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/editor.md/css/editormd.min.css" />
+  <style>body{max-width:1200px;margin:20px auto;padding:0 16px;}</style>
+</head>
+<body>
+  <h1>Editor.md CDN 引入示例</h1>
+  <p>联网状态下直接可用。</p>
+
+  <div id="editor">
+    <textarea style="display:none;"># Hello Editor.md (CDN)
+这是一个通过 **CDN** 加载的示例。
+    </textarea>
+  </div>
+
+  <!-- 先引入 jQuery（CDN） -->
+  <script src="https://cdn.jsdelivr.net/npm/jquery/dist/jquery.min.js"></script>
+  <!-- 再引入 Editor.md 主脚本（CDN） -->
+  <script src="https://cdn.jsdelivr.net/npm/editor.md/editormd.min.js"></script>
+  <script>
+    $(function () {
+      var editor = editormd("editor", {
+        width: "100%",
+        height: 640,
+        // 关键：指向 CDN 下的 lib 路径
+        path: "https://cdn.jsdelivr.net/npm/editor.md/lib/"
+      });
+    });
+  </script>
+</body>
+</html>
